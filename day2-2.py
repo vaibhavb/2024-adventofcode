@@ -13,15 +13,25 @@ def is_safe(vals):
             ldiff = diff
         else:
             return False
-        ldiff = diff
     return safe
+
+def is_safe_with_dampen(values):
+    for v in range(0, len(values)):
+        copy_list = values.copy()
+        del copy_list[v]
+        if is_safe(copy_list):
+            return True
+    return False
 
 safe = 0
 for line in lines:
     values = line.split()
     values = [int(v) for v in values]
     if is_safe(values):
-        print(values)
         safe += 1
+    else:
+        if is_safe_with_dampen(values):
+            safe +=1 
+
 
 print(safe)
