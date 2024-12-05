@@ -12,10 +12,6 @@ for line in lines:
         l1.append(int(values[0]))
         l2.append(int(values[1]))
 
-len = 0
-sim1 = defaultdict(int)
-for k in l1:
-    sim1[k] += 1
 sim2 = defaultdict(int)
 for k in l2:
     sim2[k] += 1
